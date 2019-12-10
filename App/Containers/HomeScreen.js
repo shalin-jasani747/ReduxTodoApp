@@ -6,7 +6,7 @@ import styles from './Style/HomeScreenStyle';
 class HomeScreen extends Component {
   render() {
     return (
-      <View>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableWithoutFeedback>
           <View style={styles.button}>
             <Text style={styles.buttonText}>Using Redux</Text>

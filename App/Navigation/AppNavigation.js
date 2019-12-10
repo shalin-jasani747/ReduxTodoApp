@@ -11,6 +11,9 @@ const AppNavigator = createStackNavigator({
 }, {
   headerMode: 'none',
   initialRouteName: 'Home',
+  defaultNavigationOptions: {
+    gesturesEnabled: false,
+  }
 });
 
 export default createAppContainer(AppNavigator);

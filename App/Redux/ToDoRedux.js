@@ -4,9 +4,9 @@ import Immutable from 'seamless-immutable';
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  addToDo: ['todo'],
-  updateToDo: ['todo'],
-  deleteToDo: ['id'],
+  addTodo: ['todo'],
+  updateTodo: ['todo'],
+  deleteTodo: ['id'],
   completeTodo: ['id'],
 })
 

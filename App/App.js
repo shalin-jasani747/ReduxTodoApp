@@ -7,21 +7,18 @@
  */
 
 import React from 'react';
-import { SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux'
-import store from './Redux/Store';
-import AppNavigation from './Navigation/AppNavigation';
-import styles from './Containers/Style/AppStyle';
+import { createStore } from 'redux'
+import rootReducer from './Redux/';
+import RootContainer from './RootContainer';
+
+const store = createStore(rootReducer)
 
 const App: () => React$Node = () => {
   return (
-    <>
-      <SafeAreaView style={styles.container}>
-        <Provider>
-          <AppNavigation />
-        </Provider>
-      </SafeAreaView>
-    </>
+    <Provider store={store}>
+      <RootContainer />
+    </Provider>
   );
 };
 
