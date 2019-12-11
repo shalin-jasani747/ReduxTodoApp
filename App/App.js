@@ -7,19 +7,8 @@
  */
 
 import React from 'react';
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import rootReducer from './Redux/';
-import RootContainer from './RootContainer';
+import AppNavigation from './Navigation/AppNavigation';
 
-const store = createStore(rootReducer)
-
-const App: () => React$Node = () => {
-  return (
-    <Provider store={store}>
-      <RootContainer />
-    </Provider>
-  );
-};
+const App: () => React$Node = () => <AppNavigation />;
 
 export default App;

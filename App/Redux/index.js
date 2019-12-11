@@ -1,6 +1,8 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
+import todos from './Reducers/todos';
+import visibilityFilter from './Reducers/visibilityFilter';
 
-/* ------------- Assemble The Reducers ------------- */
-export default  combineReducers({
-  todo: require('./ToDoRedux').reducer
+export default combineReducers({
+  todos,
+  visibilityFilter
 })

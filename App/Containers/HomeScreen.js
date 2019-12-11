@@ -1,29 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, TouchableWithoutFeedback, Text} from 'react-native';
-import {connect} from 'react-redux';
 import styles from './Style/HomeScreenStyle';
 
-class HomeScreen extends Component {
-  render() {
-    return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableWithoutFeedback>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Using Redux</Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Using ReduxSauce</Text>
-          </View>
-        </TouchableWithoutFeedback>
+const Button = ({buttonTitle, onPress}) => {
+  return (
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.button}>
+        <Text style={styles.buttonText}>{buttonTitle}</Text>
       </View>
-    );
-  }
-}
+    </TouchableWithoutFeedback>
+  );
+};
 
-// wraps dispatch to create nicer functions to call within our component
-const mapDispatchToProps = (dispatch) => ({
-});
-
-export default connect(null, mapDispatchToProps)(HomeScreen);
+export default ({navigation}) => {
+  return (
+    <View style={styles.container}>
+      <Button buttonTitle={'Using Redux'} onPress={() => navigation.navigate('ReduxScreen')}/>
+      <Button buttonTitle={'Using ReduxSauce'} onPress={() => navigation.navigate('ReduxSauceScreen')}/>
+    </View>
+  );
+};
