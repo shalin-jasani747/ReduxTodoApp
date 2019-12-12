@@ -1,23 +1,35 @@
+import {now} from 'lodash';
+import {Form, Icon, Input, Item} from 'native-base';
 import React, {useState} from 'react';
-import {Container, Content, Form, Item, Input, Icon} from 'native-base';
-import { now } from 'lodash';
 
-const createToDo = (name) => {
+const createToDo = (name, setItemName) => {
+  setItemName('');
   return {
     id: now(),
     text: name,
     completed: false,
   };
-}
+};
 
 export default ({onAddToDo}) => {
   const [itemName, setItemName] = useState('');
-  console.log(itemName)
   return (
     <Form>
       <Item>
-        <Input placeholder="Start adding..." onChangeText={text => setItemName(text)} />
-        <Icon name="add" onPress={() => onAddToDo(createToDo(itemName))}/>
+        <Input
+          placeholder="Start adding..."
+          value={itemName}
+          onChangeText={text => setItemName(text)}
+        />
+        <Icon
+          type="MaterialIcons"
+          name="playlist-add"
+          onPress={() =>
+            itemName.trim() !== ''
+              ? onAddToDo(createToDo(itemName, setItemName))
+              : null
+          }
+        />
       </Item>
     </Form>
   );

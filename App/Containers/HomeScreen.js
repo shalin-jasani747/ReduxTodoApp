@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TouchableWithoutFeedback, Text} from 'react-native';
+import {Text, TouchableWithoutFeedback, View} from 'react-native';
 import styles from './Style/HomeScreenStyle';
 
 const Button = ({buttonTitle, onPress}) => {
@@ -15,8 +15,14 @@ const Button = ({buttonTitle, onPress}) => {
 export default ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Button buttonTitle={'Using Redux'} onPress={() => navigation.navigate('ReduxScreen')}/>
-      <Button buttonTitle={'Using ReduxSauce'} onPress={() => navigation.navigate('ReduxSauceScreen')}/>
+      <Button
+        buttonTitle={'Using Redux'}
+        onPress={() => navigation.navigate('ReduxScreen')}
+      />
+      <Button
+        buttonTitle={'Using ReduxSauce'}
+        onPress={() => navigation.navigate('ReduxSauceScreen')}
+      />
     </View>
   );
 };

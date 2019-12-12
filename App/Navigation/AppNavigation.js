@@ -1,9 +1,8 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-
 import HomeScreen from '../Containers/HomeScreen';
-import ReduxScreen from '../Containers/ReduxScreen';
 import ReduxSauceScreen from '../Containers/ReduxSauceScreen';
+import ReduxScreen from '../Containers/ReduxScreen';
 
 const AppNavigator = createStackNavigator(
   {

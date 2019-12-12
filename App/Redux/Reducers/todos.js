@@ -1,29 +1,16 @@
-const todos = (state = [], action) => {
+const toDos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return [
-        ...state,
-        {
-          id: action.id,
-          text: action.text,
-          completed: false
-        }
-      ]
+      return [...state, action.payload];
     case 'TOGGLE_TODO':
       return state.map(todo =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-      )
-    case 'UPDATE_TODO':
-      return state.map(todo =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-      )
+        todo.id === action.id ? {...todo, completed: !todo.completed} : todo,
+      );
     case 'DELETE_TODO':
-      return state.map(todo =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-      )
+      return state.filter(todo => todo.id !== action.id);
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default todos
+export default toDos;
